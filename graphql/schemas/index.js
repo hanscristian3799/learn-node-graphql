@@ -1,14 +1,14 @@
 const graphql = require("graphql")
 const { GraphQLObjectType, GraphQLSchema, GraphQLInt, GraphQLString, GraphQLList } = graphql;
-const UserType = require("./TypeDefs/UserType")
-const userData = require("../MOCK_DATA.json");
+const GameType = require("./types/GameType")
+const userData = require("../../MOCK_DATA.json");
 
 
 const RootQuery = new GraphQLObjectType({
     name: "RootQueryType",
     fields: {
         getAllUsers: {
-            type: new GraphQLList(UserType),
+            type: new GraphQLList(GameType),
             args: { id: { type: GraphQLInt } },
             resolve(parent, args) {
                 return userData;
@@ -21,7 +21,7 @@ const Mutation = new GraphQLObjectType({
     name: "Mutation",
     fields: {
         createUser: {
-            type: UserType,
+            type: GameType,
             args: {
                 firstName: { type: GraphQLString },
                 lastName: { type: GraphQLString },
