@@ -14,11 +14,10 @@ const gameModel = require("../../mongodb/models/Game");
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
-    getAllUsers: {
+    getGames: {
       type: new GraphQLList(GameType),
-      args: { id: { type: GraphQLInt } },
-      resolve(parent, args) {
-        return userData;
+      resolve: async (parent, args) => {
+        return await gameModel.find({});
       },
     },
   },

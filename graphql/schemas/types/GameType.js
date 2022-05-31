@@ -2,8 +2,9 @@ const graphql = require("graphql");
 const { GraphQLObjectType, GraphQLString, GraphQLBoolean, GraphQLList } = graphql;
 
 const GameType = new GraphQLObjectType({
-  name: "User",
+  name: "Game",
   fields: () => ({
+    id: { type: GraphQLString },
     title: { type: GraphQLString },
     thumbnail_id: { type: GraphQLString },
     thumbnail_name: { type: GraphQLString },
@@ -21,7 +22,7 @@ const GameType = new GraphQLObjectType({
     memory: { type: GraphQLString },
     graphics: { type: GraphQLString },
     storage: { type: GraphQLString },
-    screenshots: {type: GraphQLList}
+    // screenshots: {type: GraphQLList()}
   }),
 });
 
