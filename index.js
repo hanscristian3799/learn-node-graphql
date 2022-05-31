@@ -4,7 +4,7 @@ var cors = require("cors");
 const PORT = 6969;
 const { graphqlHTTP } = require("express-graphql");
 const schema = require("./graphql/schemas/index");
-const db = require("./connection/index");
+const db = require("./mongodb/connection/index");
 
 app.use(cors("*"));
 
